@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KnowNet — Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/kn_dashboard.css">
+  <meta name="color-scheme" content="light">
+</head>
+
+<body>
+  <div class="floating-icons">
+    <div class="floating-icon">🧵</div>
+    <div class="floating-icon">🎤</div>
+    <div class="floating-icon">🎨</div>
+    <div class="floating-icon">💻</div>
+    <div class="floating-icon">⚙️</div>
+    <div class="floating-icon">📚</div>
+    <div class="floating-icon">🎭</div>
+    <div class="floating-icon">🏃</div>
+    <div class="floating-icon">🎵</div>
+    <div class="floating-icon">🔧</div>
+  </div>
+  <header class="header">
+    <div class="brand">
+      <button class="mobile-menu-toggle" aria-label="Menu" hidden>☰</button>
+      <div class="logo" aria-hidden="true">
+        <img src="/assets/images/logo.jpg" alt="KnowNet Logo" width="48" height="48">
+      </div>
+      <h1>KnowNet</h1>
+    </div>
+    <nav class="nav">
+      <a href="/" class="nav-link">Home</a>
+      <a href="/pages/kn_dashboard.html" class="nav-link active">Dashboard</a>
+      <a href="/pages/kn_skills.html" class="nav-link">Skills</a>
+      <a href="/pages/kn_meeting.html" class="nav-link">Meetings</a>
+      <a href="/pages/kn_chat.html" class="nav-link">Chat</a>
+      <a href="/pages/kn_profile.html" class="nav-link">Profile</a>
+    </nav>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar" aria-label="Primary Navigation">
+      <div class="sidebar__brand">
+        <div class="logo" aria-hidden="true">
+          <img src="/assets/images/logo.jpg" alt="KnowNet Logo" width="36" height="36">
+        </div>
+        <span class="brand__name">KnowNet</span>
+      </div>
+      <nav class="nav">
+        <a class="nav__item nav__item--active" href="/pages/kn_dashboard.html" aria-current="page">
+          <span class="nav__icon" aria-hidden="true">🏠</span>
+          <span class="nav__label">Dashboard</span>
+        </a>
+        <a class="nav__item" href="/pages/kn_skills.html">
+          <span class="nav__icon" aria-hidden="true">🎯</span>
+          <span class="nav__label">Skills</span>
+        </a>
+        <a class="nav__item" href="/pages/kn_meeting.html">
+          <span class="nav__icon" aria-hidden="true">🎥</span>
+          <span class="nav__label">Meetings</span>
+        </a>
+        <a class="nav__item" href="/pages/kn_chat.html">
+          <span class="nav__icon" aria-hidden="true">💬</span>
+          <span class="nav__label">Chat</span>
+        </a>
+        <a class="nav__item" href="/pages/kn_profile.html">
+          <span class="nav__icon" aria-hidden="true">👤</span>
+          <span class="nav__label">Profile</span>
+        </a>
+        <a class="nav__item" href="/pages/kn_settings.html">
+          <span class="nav__icon" aria-hidden="true">⚙️</span>
+          <span class="nav__label">Settings</span>
+        </a>
+      </nav>
+      <div class="sidebar__cta">
+        <button class="btn btn--accent">Start Learning</button>
+      </div>
+    </aside>
+
+    <div class="content">
+      <header class="topbar" aria-label="Header">
+        <div class="welcome">
+          <h1 class="welcome__title">Welcome back, <span class="name" id="welcome-name">Learner</span> 👋</h1>
+          <p class="welcome__subtitle" id="welcome-subtitle">Loading your personalized overview…</p>
+        </div>
+        <div class="actions">
+          <div class="search">
+            <input type="search" id="search-input" placeholder="Search skills, mentors, courses…"
+              aria-label="Search KnowNet">
+            <button class="search-btn" id="search-btn" aria-label="Search">🔍</button>
+            <div class="search-results" id="search-results" style="display: none;"></div>
+          </div>
+          <button class="icon-btn" aria-label="Notifications" id="notif-btn">
+            🔔
+            <span class="badge-count" id="notif-badge" style="display: none;">0</span>
+          </button>
+          <button class="icon-btn" aria-label="User menu">👤</button>
+        </div>
+      </header>
+
+      <main class="grid">
+        <aside class="panel profile-shortcut" aria-labelledby="profile-shortcut-title">
+          <div class="section__head">
+            <h2 id="profile-shortcut-title">Complete your Profile</h2>
+            <a class="link" href="/pages/kn_profile.html">Open</a>
+          </div>
+          <p id="profile-progress-copy">Keep your profile up to date to get better recommendations.</p>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn btn--secondary" href="/pages/kn_profile.html">Share profile</a>
+            <a class="btn btn--primary" href="/pages/kn_profile.html">Edit profile</a>
+          </div>
+        </aside>
+        <section class="quick" aria-labelledby="quick-title">
+          <div class="section__head">
+            <h2 id="quick-title">Quick Access</h2>
+            <a class="link" href="#">See all</a>
+          </div>
+          <div class="chips" id="quick-chips">
+            <p class="status status--muted">Loading quick links…</p>
+          </div>
+        </section>
+
+        <section class="users-near-you" aria-labelledby="users-title">
+          <div class="section__head">
+            <h2 id="users-title">Users Near You</h2>
+            <a class="link" href="#">Refresh</a>
+          </div>
+          <div class="cards cards--responsive" id="users-grid">
+            <p class="status status--loading">Finding people near you…</p>
+          </div>
+        </section>
+
+
+
+        <section class="trending" aria-labelledby="trend-title">
+          <div class="section__head">
+            <h2 id="trend-title">Trending Skills</h2>
+          </div>
+          <div class="skills" id="trending-skills">
+            <span class="status status--muted">Analyzing trending skills…</span>
+          </div>
+        </section>
+
+
+
+        <section class="sessions" aria-labelledby="sess-title">
+          <div class="section__head">
+            <h2 id="sess-title">Upcoming Live Sessions</h2>
+            <a class="link" href="#">View calendar</a>
+          </div>
+          <ul class="session-list" id="upcoming-sessions">
+            <li class="session">
+              <div class="session__time">Loading sessions…</div>
+            </li>
+          </ul>
+        </section>
+
+        <section class="feed" aria-labelledby="feed-title" style="grid-column: span 12;">
+          <div class="section__head">
+            <h2 id="feed-title">Community Updates</h2>
+          </div>
+          <ul class="feed-list" id="community-feed">
+            <li class="post">
+              <p class="post__meta">Loading updates...</p>
+            </li>
+          </ul>
+        </section>
+      </main>
+
+      <!-- Notification Panel (Popover) -->
+      <aside class="panel notifications" id="notification-panel" aria-labelledby="notif-title">
+        <div class="section__head">
+          <h2 id="notif-title">Notifications</h2>
+          <button class="link" type="button" id="mark-all-read">Mark all read</button>
+        </div>
+        <ul class="notif-list" id="notification-list">
+          <li class="notif"><span class="time">Loading notifications…</span></li>
+        </ul>
+      </aside>
+
+      <footer class="footer">
+        <span>© 2025 KnowNet</span>
+        <nav class="footer__nav">
+          <a href="/pages/kn_help.html">Help</a>
+          <a href="/pages/kn_privacy.html">Privacy</a>
+          <a href="/pages/kn_terms.html">Terms</a>
+        </nav>
+      </footer>
+    </div>
+  </div>
+  <script src="/assets/js/kn_api.js?v=2"></script>
+  <script src="/assets/js/kn_dashboard.js?v=2"></script>
+</body>
+
+</html>

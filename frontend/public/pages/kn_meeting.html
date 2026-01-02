@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KnowNet — Live Class Meeting</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/kn_meeting.css">
+    <meta name="color-scheme" content="light">
+</head>
+
+<body>
+    <header class="header">
+        <div class="brand">
+            <div class="logo" aria-hidden="true">
+                <img src="/assets/images/logo.jpg" alt="KnowNet Logo" width="48" height="48">
+            </div>
+            <h1>KnowNet</h1>
+        </div>
+        <nav class="nav">
+            <a href="/" class="nav-link">Home</a>
+            <a href="/pages/kn_dashboard.html" class="nav-link">Dashboard</a>
+            <a href="/pages/kn_skills.html" class="nav-link">Skills</a>
+            <a href="/pages/kn_meeting.html" class="nav-link active">Meetings</a>
+            <a href="/pages/kn_chat.html" class="nav-link">Chat</a>
+            <a href="/pages/kn_profile.html" class="nav-link">Profile</a>
+        </nav>
+    </header>
+
+    <div class="meeting-header">
+        <div class="meeting-info">
+            <h2 class="meeting-title" id="meetingTitle">Loading session...</h2>
+            <p class="meeting-status" id="meetingStatus">Fetching participants</p>
+        </div>
+        <div class="meeting-actions">
+            <label class="session-picker">
+                <span><i class="fas fa-calendar"></i> Session</span>
+                <select id="sessionSelect" class="session-select">
+                    <option value="">-- Select to Join --</option>
+                </select>
+
+            </label>
+        </div>
+    </div>
+
+    <main class="main-container">
+        <section class="video-section">
+            <div class="video-container">
+
+                <video id="localVideo" class="video-element" autoplay muted playsinline></video>
+                <div class="video-placeholder" id="videoPlaceholder">
+                    <i class="fas fa-video"></i>
+                    <h3>Camera Access Required</h3>
+                    <p>Click "Join Meeting" to enable camera and microphone</p>
+                </div>
+            </div>
+
+            <div class="video-controls">
+                <div class="control-buttons">
+                    <button class="control-btn control-btn--primary" id="joinBtn">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Join Meeting
+                    </button>
+                    <button class="control-btn control-btn--secondary" id="muteBtn" disabled>
+                        <i class="fas fa-microphone"></i>
+                        Mute
+                    </button>
+                    <button class="control-btn control-btn--secondary" id="videoBtn" disabled>
+                        <i class="fas fa-video"></i>
+                        Video
+                    </button>
+                    <button class="control-btn control-btn--secondary" id="screenBtn" disabled>
+                        <i class="fas fa-desktop"></i>
+                        Share Screen
+                    </button>
+                    <button class="control-btn control-btn--danger" id="leaveBtn" disabled>
+                        <i class="fas fa-sign-out-alt"></i>
+                        Leave
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <aside class="sidebar">
+            <div class="sidebar-panel">
+                <div class="panel-header">
+                    <i class="fas fa-users"></i>
+                    Participants <span id="participantCount">(0)</span>
+                </div>
+                <div class="panel-content">
+                    <div class="participants-list" id="participantsList">
+                        <p class="status status--muted">Select a session to view participants.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-panel">
+                <div class="panel-header">
+                    <i class="fas fa-comments"></i>
+                    Chat
+                </div>
+                <div class="panel-content">
+                    <div class="chat-container">
+                        <div class="chat-messages" id="chatMessages">
+                            <p class="status status--muted">Select a session to load chat history.</p>
+                        </div>
+                        <div class="chat-input">
+                            <input type="text" placeholder="Type your message..." id="chatInput">
+                            <button type="button" id="sendChat">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-panel">
+                <div class="panel-header">
+                    <i class="fas fa-share-alt"></i>
+                    Resources & Sharing
+                </div>
+                <div class="panel-content">
+                    <div class="resources-tabs">
+                        <button class="resource-tab active" data-tab="documents">Documents</button>
+                        <button class="resource-tab" data-tab="links">Links</button>
+                        <button class="resource-tab" data-tab="screen">Screen</button>
+                    </div>
+
+                    <div class="resource-content">
+                        <div class="resource-section active" id="documents">
+                            <div class="upload-area" id="resourceUploadArea">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <div class="upload-text">Drop files here or click to upload</div>
+                                <div class="upload-hint">PDF, DOC, PPT, Images up to 50MB</div>
+                            </div>
+                            <input type="file" id="resourceFileInput" hidden
+                                accept=".pdf,.doc,.docx,.ppt,.pptx,.jpg,.jpeg,.png,.zip">
+                            <div class="resource-empty" id="documentsEmpty">No documents shared yet.</div>
+                        </div>
+
+                        <div class="resource-section" id="links">
+                            <div class="resource-empty">Links shared during the session will appear here.</div>
+                        </div>
+
+                        <div class="resource-section" id="screen">
+                            <div class="resource-empty">Screen sharing updates will appear here.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <script src="/assets/js/kn_api.js"></script>
+    <script src="/assets/js/kn_meeting.js"></script>
+</body>
+
+</html>

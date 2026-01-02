@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KnowNet — {TITLE}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/kn_dashboard.css">
+    <style>
+        .info-content {
+            max-width: 800px;
+            margin: 2rem auto;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+        }
+
+        .info-content h1 {
+            margin-bottom: 1.5rem;
+            color: var(--kn-blue);
+        }
+
+        .info-content h2 {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .info-content p {
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+        }
+
+        .info-content ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+        }
+
+        .info-content li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="brand">
+            <div class="logo" aria-hidden="true">
+                <img src="/assets/images/logo.jpg" alt="KnowNet Logo" width="48" height="48">
+            </div>
+            <h1>KnowNet</h1>
+        </div>
+        <nav class="nav">
+            <a href="/" class="nav-link">Home</a>
+            <a href="/pages/kn_dashboard.html" class="nav-link">Dashboard</a>
+        </nav>
+    </header>
+
+    <div class="layout" style="overflow-y: auto;">
+        <main class="info-content">
+            <h1>{TITLE}</h1>
+            {CONTENT}
+        </main>
+
+        <footer class="footer">
+            <span>© 2025 KnowNet</span>
+            <nav class="footer__nav">
+                <a href="/pages/kn_help.html">Help</a>
+                <a href="/pages/kn_privacy.html">Privacy</a>
+                <a href="/pages/kn_terms.html">Terms</a>
+            </nav>
+        </footer>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="KnowNet is a peer-to-peer skill sharing platform with live sessions, communities, and messaging.">
+    <title>KnowNet — Peer-to-Peer Skill Sharing Platform</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/kn_landing.css">
+    <meta name="color-scheme" content="light">
+    <meta name="theme-color" content="#0f172a">
+    <style>
+        /* Ensure visible focus for keyboard users, regardless of external CSS */
+        :focus-visible {
+            outline: 3px solid #2563eb;
+            outline-offset: 2px;
+        }
+
+        .skip-link {
+            position: absolute;
+            left: -9999px;
+            top: auto;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+
+        .skip-link:focus {
+            position: static;
+            width: auto;
+            height: auto;
+            padding: 8px 12px;
+            background: #111827;
+            color: #ffffff;
+            border-radius: 6px;
+            z-index: 1000;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <div class="floating-icons" aria-hidden="true">
+        <div class="floating-icon">🧵</div>
+        <div class="floating-icon">🎤</div>
+        <div class="floating-icon">🎨</div>
+        <div class="floating-icon">💻</div>
+        <div class="floating-icon">⚙</div>
+        <div class="floating-icon">📚</div>
+        <div class="floating-icon">🎭</div>
+        <div class="floating-icon">🏃</div>
+        <div class="floating-icon">🎵</div>
+        <div class="floating-icon">🔧</div>
+    </div>
+
+    <header class="header" role="banner" aria-label="Site header">
+        <div class="brand">
+            <div class="logo" aria-hidden="true">
+                <img src="/assets/images/logo.jpg" alt="KnowNet Logo" width="48" height="48">
+            </div>
+            <p class="brand-title">KnowNet</p>
+        </div>
+        <nav class="nav" aria-label="Primary">
+            <a href="#features" class="nav-link">Features</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+        <div class="auth-buttons" id="landing-auth-buttons">
+            <a href="/pages/kn_login.html" class="btn btn--secondary">Sign In</a>
+            <a href="/pages/kn_signup.html" class="btn btn--primary">Create Account</a>
+        </div>
+    </header>
+
+    <main class="main" id="main-content" tabindex="-1" role="main">
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Your Skills. Our Network. Limitless Learning</h1>
+                <p class="hero-subtitle">Join KnowNet, the peer-to-peer platform where learners become teachers and
+                    knowledge flows freely. Connect with experts, join communities, and participate in live learning
+                    sessions.</p>
+                <div class="hero-actions" id="hero-actions">
+                    <a href="/pages/kn_signup.html" class="btn btn--primary btn--large">Get Started Free</a>
+                    <a href="/pages/kn_dashboard.html" class="btn btn--secondary btn--large">View Dashboard</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="knowledge-exchange-3d">
+                    <!-- User Node A -->
+                    <div class="node node-a">
+                        <div class="node-core"><i class="fas fa-user-graduate"></i></div>
+                        <div class="electron e1"></div>
+                    </div>
+
+                    <!-- Exchange Stream -->
+                    <div class="data-stream">
+                        <div class="particle p1"></div>
+                        <div class="particle p2"></div>
+                        <div class="particle p3"></div>
+                        <i class="fas fa-lightbulb idea-icon"></i>
+                    </div>
+
+                    <!-- User Node B -->
+                    <div class="node node-b">
+                        <div class="node-core"><i class="fas fa-chalkboard-teacher"></i></div>
+                        <div class="electron e2"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features">
+            <h2 class="section-title">Why Choose KnowNet?</h2>
+            <div class="features-grid">
+                <article class="feature-card">
+                    <div class="feature-icon-3d p2p-anim">
+                        <div class="connector-line"></div>
+                        <div class="node-3d n-left"></div>
+                        <div class="node-3d n-right"></div>
+                    </div>
+                    <h3>Peer-to-Peer Connection</h3>
+                    <p>Connect directly with learners and experts worldwide. No intermediaries, just pure knowledge
+                        sharing on your terms.</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon-3d session-anim">
+                        <div class="screen-3d">
+                            <div class="play-btn"></div>
+                        </div>
+                    </div>
+                    <h3>Live Interactive Sessions</h3>
+                    <p>Host or join real-time video classrooms. Engage with specialized tools designed for effective
+                        remote teaching.</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon-3d community-anim">
+                        <div class="comm-core"></div>
+                        <div class="comm-ring">
+                            <div class="dot d1"></div>
+                            <div class="dot d2"></div>
+                            <div class="dot d3"></div>
+                        </div>
+                    </div>
+                    <h3>Vibrant Community</h3>
+                    <p>Join tailored communities tailored to your interests. Discuss, share resources, and grow together
+                        with peers.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="skill-universe" class="skill-universe">
+            <h2 class="section-title">Explore the Skill Universe</h2>
+            <div class="universe-3d">
+                <div class="core-star">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <div class="orbit-ring ring-1">
+                    <div class="planet p1"><i class="fas fa-code"></i></div>
+                    <div class="planet p2"><i class="fas fa-paint-brush"></i></div>
+                </div>
+                <div class="orbit-ring ring-2">
+                    <div class="planet p3"><i class="fas fa-music"></i></div>
+                    <div class="planet p4"><i class="fas fa-database"></i></div>
+                </div>
+                <div class="orbit-ring ring-3">
+                    <div class="planet p5"><i class="fas fa-briefcase"></i></div>
+                    <div class="planet p6"><i class="fas fa-flask"></i></div>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 2rem; opacity: 0.8;">Connect with peers to expand your knowledge
+                galaxy.</p>
+        </section>
+
+        <section id="about" class="about">
+            <div class="about-content">
+                <h2 class="section-title">About KnowNet</h2>
+                <p>KnowNet is revolutionizing how people learn and share knowledge. Our platform connects learners with
+                    experts, creating a vibrant ecosystem where everyone can both teach and learn. Whether you're a
+                    seasoned professional or just starting your journey, KnowNet provides the tools and community you
+                    need to succeed.</p>
+                <div class="stats">
+                    <div class="stat">
+                        <span class="stat-number">10K+</span>
+                        <span class="stat-label">Active Users</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Skill Categories</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">50K+</span>
+                        <span class="stat-label">Sessions Completed</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <h2 class="section-title" id="contact-title">Ready to Start Learning?</h2>
+            <p id="contact-subtitle">Join thousands of learners who are already building their skills on KnowNet.</p>
+            <div class="contact-actions" id="contact-actions">
+                <a href="/pages/kn_signup.html" class="btn btn--primary btn--large">Create Your Account</a>
+                <a href="/pages/kn_login.html" class="btn btn--secondary btn--large">Sign In</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" role="contentinfo" aria-label="Site footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo" aria-hidden="true">
+                    <img src="/assets/images/logo.jpg" alt="KnowNet Logo" width="32" height="32">
+                </div>
+                <span>KnowNet</span>
+            </div>
+            <div class="footer-links">
+                <a href="#features">Features</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <a href="/pages/kn_dashboard.html">Dashboard</a>
+            </div>
+            <div class="footer-social">
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 KnowNet. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="/assets/js/kn_api.js"></script>
+    <script src="/assets/js/kn_landing.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            if (!window.KN) {
+                console.warn('KN API helpers not available');
+                return;
+            }
+
+            const authButtons = document.getElementById('landing-auth-buttons');
+            const heroActions = document.getElementById('hero-actions');
+            const contactTitle = document.getElementById('contact-title');
+            const contactSubtitle = document.getElementById('contact-subtitle');
+            const contactActions = document.getElementById('contact-actions');
+            const sessionsContainer = document.getElementById('dynamic-sessions');
+
+            const user = window.KN.auth.getUser?.();
+            if (user) {
+                if (authButtons) {
+                    authButtons.innerHTML = `
+                        <span class="welcome-text">Welcome back, ${user.name.split(' ')[0]}!</span>
+                        <a href="/pages/kn_dashboard.html" class="btn btn--primary">Open Dashboard</a>
+                        <button class="btn btn--secondary" id="landing-logout-btn">Sign Out</button>
+                    `;
+                    const logoutBtn = document.getElementById('landing-logout-btn');
+                    if (logoutBtn) {
+                        logoutBtn.addEventListener('click', () => {
+                            window.KN.auth.clear();
+                            window.location.href = '/';
+                        });
+                    }
+                }
+                if (contactTitle) {
+                    contactTitle.textContent = 'Jump back into your learning';
+                }
+                if (contactSubtitle) {
+                    contactSubtitle.textContent = 'Head to your dashboard to see upcoming sessions, messages, and more.';
+                }
+                if (contactActions) {
+                    contactActions.innerHTML = `
+                        <a href="/pages/kn_dashboard.html" class="btn btn--primary btn--large">Go to Dashboard</a>
+                        <button class="btn btn--secondary btn--large" id="contact-logout">Sign Out</button>
+                    `;
+                    const contactLogout = document.getElementById('contact-logout');
+                    if (contactLogout) {
+                        contactLogout.addEventListener('click', () => {
+                            window.KN.auth.clear();
+                            window.location.href = '/';
+                        });
+                    }
+                }
+            }
+
+            if (sessionsContainer) {
+                sessionsContainer.innerHTML = '<p class="status status--loading">Loading top sessions...</p>';
+                try {
+                    const sessions = await window.KN.api.get('/sessions', { auth: false });
+                    const topSessions = Array.isArray(sessions) ? sessions.slice(0, 3) : [];
+                    if (!topSessions.length) {
+                        sessionsContainer.innerHTML = `
+                            <div class="feature-card">
+                                <div class="feature-icon"><i class="fas fa-calendar-plus"></i></div>
+                                <h3>No live sessions yet</h3>
+                                <p>Be the first to create a session and start teaching!</p>
+                                <a class="link" href="/pages/kn_dashboard.html">Go to dashboard to create one</a>
+                            </div>
+                        `;
+                    } else {
+                        sessionsContainer.innerHTML = '';
+                        topSessions.forEach(session => {
+                            const article = document.createElement('article');
+                            article.className = 'feature-card';
+                            const startDate = session.start_time ? new Date(session.start_time) : null;
+                            const dateLabel = session.date
+                                ? new Date(session.date).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })
+                                : startDate
+                                    ? startDate.toLocaleDateString(undefined, { month: 'short', day: 'numeric' })
+                                    : 'TBD';
+                            const timeLabel = session.time
+                                ? session.time.slice(0, 5)
+                                : startDate
+                                    ? startDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+                                    : '';
+                            article.innerHTML = `
+                                <div class="feature-icon">
+                                    <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+                                </div>
+                                <h3>${session.title}</h3>
+                                <p>${session.description || 'Interactive session'}</p>
+                                <p class="card__meta">${session.location || 'Remote'} • ${dateLabel}${timeLabel ? ' @ ' + timeLabel : ''}</p>
+                                <a class="btn btn--secondary" href="/pages/kn_dashboard.html">Join via Dashboard</a>
+                            `;
+                            sessionsContainer.appendChild(article);
+                        });
+                    }
+                } catch (error) {
+                    console.error('[Landing] Unable to load sessions:', error);
+                    sessionsContainer.innerHTML = `
+                        <div class="feature-card">
+                            <div class="feature-icon"><i class="fas fa-wifi-slash"></i></div>
+                            <h3>Unable to load live sessions</h3>
+                            <p>${error.message || 'Please check your connection and try again.'}</p>
+                        </div>
+                    `;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

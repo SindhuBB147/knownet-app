@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KnowNet — Chat</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/kn_chat.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta name="color-scheme" content="light">
+</head>
+
+<body>
+  <div class="floating-icons">
+    <div class="floating-icon">💬</div>
+    <div class="floating-icon">🎧</div>
+    <div class="floating-icon">🎨</div>
+    <div class="floating-icon">💻</div>
+    <div class="floating-icon">🎵</div>
+    <div class="floating-icon">📚</div>
+    <div class="floating-icon">🧵</div>
+    <div class="floating-icon">🎤</div>
+    <div class="floating-icon">🛠️</div>
+    <div class="floating-icon">⚙️</div>
+  </div>
+
+  <header class="header">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">
+        <img src="/assets/images/logo.jpg" alt="KnowNet Logo" width="48" height="48">
+      </div>
+      <h1>KnowNet</h1>
+    </div>
+    <nav class="nav">
+      <a href="/" class="nav-link">Home</a>
+      <a href="/pages/kn_dashboard.html" class="nav-link">Dashboard</a>
+      <a href="/pages/kn_skills.html" class="nav-link">Skills</a>
+      <a href="/pages/kn_meeting.html" class="nav-link">Meetings</a>
+      <a href="/pages/kn_chat.html" class="nav-link active">Chat</a>
+      <a href="/pages/kn_profile.html" class="nav-link">Profile</a>
+    </nav>
+  </header>
+
+  <main class="chat" aria-label="Chat">
+    <aside class="conversations" aria-labelledby="conv-title">
+      <div class="conversations__head">
+        <h2 id="conv-title">Messages</h2>
+        <div class="search">
+          <input type="search" placeholder="Search people or chats…" aria-label="Search chats">
+        </div>
+      </div>
+      <ul class="conversation-list" id="conversationList">
+        <li class="conversation conversation--empty">
+          <div class="meta">
+            <div class="preview">Loading sessions...</div>
+          </div>
+        </li>
+      </ul>
+    </aside>
+
+    <section class="thread" aria-labelledby="thread-title">
+      <header class="thread__head">
+        <button id="mobile-back-btn" class="icon-btn" style="display: none; margin-right: 10px;" aria-label="Back">
+          <i class="fas fa-arrow-left"></i>
+        </button>
+        <div class="peer">
+          <div class="avatar"><img src="/assets/images/logo.jpg" alt="Aisha"></div>
+          <div>
+            <h1 id="thread-title" class="title">Select a Session</h1>
+            <p class="subtitle" id="thread-subtitle">Choose a session to start chatting</p>
+          </div>
+        </div>
+        <div class="head__actions">
+          <button class="icon-btn" aria-label="Start call">🎥</button>
+          <button class="icon-btn" aria-label="More">⋯</button>
+        </div>
+      </header>
+
+      <div class="messages" role="log" aria-live="polite" id="messagesContainer">
+        <div class="msg msg--system">
+          <div class="bubble">Select a session to view messages</div>
+        </div>
+      </div>
+
+      <form class="composer" aria-label="Message composer" id="messageForm" onsubmit="return false;">
+        <input type="text" placeholder="Write a message…" aria-label="Write a message" id="chatInput" disabled>
+        <div class="composer__actions">
+          <button class="icon-btn" type="button" aria-label="Attach" disabled>📎</button>
+          <button class="btn btn--primary" type="submit" id="sendButton" disabled>Send</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>© 2025 KnowNet</span>
+    <nav class="footer__nav">
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+      <a href="#">FAQ</a>
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+    </nav>
+  </footer>
+  <script src="/assets/js/kn_api.js"></script>
+  <script src="/assets/js/kn_chat.js"></script>
+</body>
+
+</html>

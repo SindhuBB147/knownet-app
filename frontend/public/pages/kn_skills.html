@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KnowNet — Skills & Communities</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/kn_skills.css">
+    <meta name="color-scheme" content="light">
+</head>
+
+<body>
+    <div class="floating-icons">
+        <div class="floating-icon">🧵</div>
+        <div class="floating-icon">🎤</div>
+        <div class="floating-icon">🎨</div>
+        <div class="floating-icon">💻</div>
+        <div class="floating-icon">⚙️</div>
+        <div class="floating-icon">📚</div>
+        <div class="floating-icon">🎭</div>
+        <div class="floating-icon">🏃</div>
+        <div class="floating-icon">🎵</div>
+        <div class="floating-icon">🔧</div>
+    </div>
+
+    <header class="header">
+        <div class="brand">
+            <button class="mobile-menu-toggle" aria-label="Menu" hidden>☰</button>
+            <div class="logo" aria-hidden="true">
+                <img src="/assets/images/logo.jpg" alt="KnowNet Logo" width="48" height="48">
+            </div>
+            <h1>KnowNet</h1>
+        </div>
+        <nav class="nav">
+            <a href="/" class="nav-link">Home</a>
+            <a href="/pages/kn_dashboard.html" class="nav-link">Dashboard</a>
+            <a href="/pages/kn_skills.html" class="nav-link active">Skills</a>
+            <a href="/pages/kn_meeting.html" class="nav-link">Meetings</a>
+            <a href="/pages/kn_chat.html" class="nav-link">Chat</a>
+            <a href="/pages/kn_profile.html" class="nav-link">Profile</a>
+        </nav>
+    </header>
+
+    <main class="main-container">
+        <div class="page-header">
+            <h1>Skills & Communities</h1>
+            <p>Discover new skills, join communities, and connect with experts</p>
+        </div>
+
+        <div class="content-grid">
+            <aside class="sidebar">
+                <div class="sidebar-section">
+                    <h3>Categories</h3>
+                    <div class="category-list" id="category-list">
+                        <p class="status status--muted">Loading categories...</p>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3>My Communities</h3>
+                    <div class="community-list" id="community-list">
+                        <p class="status status--muted">Loading your communities...</p>
+                    </div>
+                </div>
+            </aside>
+
+            <div class="main-content">
+                <div class="search-bar">
+                    <div class="search-input">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="skill-search" placeholder="Search skills, communities, or users...">
+                    </div>
+                    <button class="btn btn--primary" id="add-skill-btn" style="margin-right: 0.5rem;">
+                        <i class="fas fa-plus"></i>
+                        Add Skill
+                    </button>
+                    <button class="btn btn--primary" id="create-community-btn">
+                        <i class="fas fa-plus"></i>
+                        Create Community
+                    </button>
+                </div>
+
+                <!-- Add Skill Inline Form -->
+                <div id="addSkillForm" class="sidebar-section" hidden style="margin-bottom: 2rem;">
+                    <h3 style="margin-bottom: 1rem;">Add New Skill</h3>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <input type="text" id="skillNameInput" placeholder="Skill name (e.g. Python)"
+                            style="flex: 1; padding: 0.75rem; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: var(--radius); color: white;">
+                        <input type="text" id="skillLevelInput" placeholder="Level (optional)"
+                            style="flex: 0.5; padding: 0.75rem; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: var(--radius); color: white;">
+                    </div>
+                    <div style="display: flex; gap: 1rem; justify-content: flex-end; margin-top: 1rem;">
+                        <button type="button" id="cancelAddSkill" class="btn btn--secondary">Cancel</button>
+                        <button type="button" id="submitAddSkill" class="btn btn--primary">Add Skill</button>
+                    </div>
+                </div>
+
+                <div class="skills-grid" id="skills-grid">
+                    <p class="status status--loading">Loading skills from sessions...</p>
+                </div>
+
+                <div class="trending-section">
+                    <h2>Trending Discussions</h2>
+                    <div class="discussions-list" id="discussions-list">
+                        <p class="status status--muted">Fetching discussions from your active sessions...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="/assets/js/kn_api.js"></script>
+    <script src="/assets/js/kn_skills.js"></script>
+</body>
+
+</html>

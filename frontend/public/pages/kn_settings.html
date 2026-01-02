@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KnowNet — Settings</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/kn_settings.css">
+    <meta name="color-scheme" content="light">
+</head>
+
+<body>
+    <div class="floating-icons">
+        <div class="floating-icon">🧵</div>
+        <div class="floating-icon">🎤</div>
+        <div class="floating-icon">🎨</div>
+        <div class="floating-icon">💻</div>
+        <div class="floating-icon">⚙️</div>
+        <div class="floating-icon">📚</div>
+        <div class="floating-icon">🎭</div>
+        <div class="floating-icon">🏃</div>
+        <div class="floating-icon">🎵</div>
+        <div class="floating-icon">🔧</div>
+    </div>
+
+    <header class="header">
+        <div class="brand">
+            <div class="logo" aria-hidden="true">
+                <img src="/assets/images/logo.jpg" alt="KnowNet Logo" width="48" height="48">
+            </div>
+            <h1>KnowNet</h1>
+        </div>
+        <nav class="nav">
+            <a href="/" class="nav-link">Home</a>
+            <a href="/pages/kn_dashboard.html" class="nav-link">Dashboard</a>
+            <a href="/pages/kn_skills.html" class="nav-link">Skills</a>
+            <a href="/pages/kn_meeting.html" class="nav-link">Meetings</a>
+            <a href="/pages/kn_chat.html" class="nav-link">Chat</a>
+            <a href="/pages/kn_profile.html" class="nav-link">Profile</a>
+        </nav>
+    </header>
+
+    <main class="main-container">
+        <div class="page-header">
+            <h1>Settings</h1>
+            <p>Manage your account preferences and privacy settings</p>
+        </div>
+
+        <div class="settings-container">
+            <aside class="settings-sidebar">
+                <nav class="settings-nav">
+                    <button class="settings-nav-item active" data-section="profile">
+                        <i class="fas fa-user"></i>
+                        Profile
+                    </button>
+                    <button class="settings-nav-item" data-section="privacy">
+                        <i class="fas fa-shield-alt"></i>
+                        Privacy & Security
+                    </button>
+                    <button class="settings-nav-item" data-section="notifications">
+                        <i class="fas fa-bell"></i>
+                        Notifications
+                    </button>
+
+
+                    <button class="settings-nav-item" data-section="account">
+                        <i class="fas fa-cog"></i>
+                        Account
+                    </button>
+                </nav>
+            </aside>
+
+            <div class="settings-content">
+                <!-- Profile Section -->
+                <div class="settings-section active" id="profile">
+                    <h2>Profile Settings</h2>
+                    <form class="settings-form" id="profileForm">
+                        <div class="form-group">
+                            <label for="profile-picture">Profile Picture</label>
+                            <div class="profile-picture-upload">
+                                <div class="current-picture">
+                                    <img src="/assets/images/logo.jpg" alt="Current Profile Picture"
+                                        id="current-picture">
+                                    <div class="picture-overlay">
+                                        <i class="fas fa-camera"></i>
+                                    </div>
+                                </div>
+                                <input type="file" id="profile-picture" accept="image/*" style="display: none;">
+                                <button type="button" class="btn btn--secondary"
+                                    onclick="document.getElementById('profile-picture').click()">
+                                    Change Picture
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="first-name">First Name</label>
+                                <input type="text" id="first-name" value="Alex" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="last-name">Last Name</label>
+                                <input type="text" id="last-name" value="Johnson" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bio">Bio</label>
+                            <textarea id="bio" rows="4"
+                                placeholder="Tell us about yourself...">Passionate learner and educator. Love sharing knowledge and helping others grow.</textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="location">Location</label>
+                            <input type="text" id="location" value="San Francisco, CA">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="website">Website</label>
+                            <input type="url" id="website" value="https://alexjohnson.dev">
+                        </div>
+
+                        <button type="submit" class="btn btn--primary">Save Changes</button>
+                    </form>
+                </div>
+
+                <!-- Privacy & Security Section -->
+                <div class="settings-section" id="privacy">
+                    <h2>Privacy & Security</h2>
+                    <div class="settings-group">
+                        <h3>Profile Visibility</h3>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h4>Profile Visibility</h4>
+                                <p>Control who can see your profile information</p>
+                            </div>
+                            <select class="setting-control" id="profileVisibility">
+                                <option value="public">Public</option>
+                                <option value="community">Community Members Only</option>
+                                <option value="private">Private</option>
+                            </select>
+                        </div>
+
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h4>Show Online Status</h4>
+                                <p>Let others know when you're active</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="onlineStatusToggle" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h4>Allow Direct Messages</h4>
+                                <p>Receive messages from other users</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="directMessagesToggle" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="settings-group">
+                        <h3>Security</h3>
+
+
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h4>Change Password</h4>
+                                <p>Update your account password</p>
+                            </div>
+                            <button class="btn btn--secondary" id="changePasswordBtn">Change Password</button>
+                        </div>
+                    </div>
+
+                    <!-- Change Password Form (Hidden by default) -->
+                    <div id="changePasswordFormContainer"
+                        style="display:none; margin-top:1rem; padding:1rem; border-top:1px solid var(--kn-border);">
+                        <form id="changePasswordForm">
+                            <div class="form-group">
+                                <label for="currentPassword">Current Password</label>
+                                <input type="password" id="currentPassword" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="newPassword">New Password (min 6 chars)</label>
+                                <input type="password" id="newPassword" required minlength="6">
+                            </div>
+                            <div class="form-group">
+                                <label for="confirmNewPassword">Confirm New Password</label>
+                                <input type="password" id="confirmNewPassword" required minlength="6">
+                            </div>
+                            <div style="display:flex; gap:10px; margin-top:1rem;">
+                                <button type="submit" class="btn btn--primary">Update Password</button>
+                                <button type="button" class="btn btn--secondary"
+                                    id="cancelPasswordChange">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+
+                <!-- Notifications Section -->
+                <div class="settings-section" id="notifications">
+                    <h2>Notification Preferences</h2>
+                    <div class="settings-group">
+                        <h3>General Alerts</h3>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h4>Session Invites</h4>
+                                <p>Get notified when someone invites you to a session</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="notifySessionInvites" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h4>Community Updates</h4>
+                                <p>Receive updates about your communities</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="notifyCommunityUpdates" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h4>Direct Messages</h4>
+                                <p>Get notified of new messages</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="notifyDirectMessages" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h4>Session Reminders</h4>
+                                <p>Get reminded before your scheduled sessions</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="notifySessionReminders" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h4>New Achievements</h4>
+                                <p>Celebrate when you earn new badges</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="notifyNewAchievements" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+                <!-- Account Section -->
+                <div class="settings-section" id="account">
+                    <h2>Account Settings</h2>
+                    <div class="settings-group">
+                        <h3>Account Information</h3>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h4>Email Address</h4>
+                                <p id="currentUserEmail">alex.johnson@example.com</p>
+                            </div>
+                            <button class="btn btn--secondary" id="changeEmailBtn">Change Email</button>
+                        </div>
+
+                        <!-- Change Email Form (Hidden) -->
+                        <div id="changeEmailFormContainer"
+                            style="display:none; margin-top:1rem; padding:1rem; border-top:1px solid var(--kn-border);">
+                            <form id="changeEmailForm">
+                                <div class="form-group">
+                                    <label for="newEmail">New Email Address</label>
+                                    <input type="email" id="newEmail" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="emailPassword">Current Password</label>
+                                    <input type="password" id="emailPassword" required>
+                                </div>
+                                <div style="display:flex; gap:10px; margin-top:1rem;">
+                                    <button type="submit" class="btn btn--primary">Update Email</button>
+                                    <button type="button" class="btn btn--secondary"
+                                        id="cancelEmailChange">Cancel</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h4>Account Status</h4>
+                                <p>Active</p>
+                            </div>
+                            <span class="status-badge status-active">Active</span>
+                        </div>
+                    </div>
+
+                    <div class="settings-group">
+                        <h3>Data & Privacy</h3>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h4>Download My Data</h4>
+                                <p>Get a copy of all your data</p>
+                            </div>
+                            <button class="btn btn--secondary">Download Data</button>
+                        </div>
+
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h4>Delete Account</h4>
+                                <p>Permanently delete your account and all data</p>
+                            </div>
+                            <button class="btn btn--danger" id="deleteAccountBtn">Delete Account</button>
+                        </div>
+
+                        <!-- Delete Account Confirmation (Hidden) -->
+                        <div id="deleteAccountFormContainer"
+                            style="display:none; margin-top:1rem; padding:1rem; background:#fee2e2; border-radius:var(--radius);">
+                            <p style="color:#b91c1c; margin-bottom:1rem; font-weight:bold;">This action is
+                                irreversible.
+                                Please
+                                enter your password to confirm.</p>
+                            <form id="deleteAccountForm">
+                                <div class="form-group">
+                                    <label for="deletePassword" style="color:#b91c1c;">Password</label>
+                                    <input type="password" id="deletePassword" required
+                                        style="border-color:#b91c1c; color:#b91c1c;">
+                                </div>
+                                <div style="display:flex; gap:10px; margin-top:1rem;">
+                                    <button type="submit" class="btn btn--danger">Confirm Delete</button>
+                                    <button type="button" class="btn btn--secondary" id="cancelDeleteAccount"
+                                        style="color:#333; background:white;">Cancel</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="/assets/js/kn_api.js"></script>
+    <script src="/assets/js/kn_settings.js"></script>
+</body>
+
+</html>

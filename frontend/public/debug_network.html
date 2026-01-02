@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Network Debugger</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+        }
+
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+        }
+
+        .success {
+            background-color: #dff0d8;
+            border-color: #d6e9c6;
+            color: #3c763d;
+        }
+
+        .error {
+            background-color: #f2dede;
+            border-color: #ebccd1;
+            color: #a94442;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Network Connectivity Test</h2>
+    <div id="results">Running tests...</div>
+    <button onclick="runTests()">Run Tests Again</button>
+
+    <script>
+        async function runTests() {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = 'Testing...';
+
+            try {
+                // Test 1: Check if we can hit the proxy endpoint
+                const response = await fetch('/api/health');
+                const text = await response.text();
+
+                if (response.ok) {
+                    resultsDiv.innerHTML = `
+                        <div class="status success">
+                            <strong>TEST 1 (GET) SUCCESS!</strong><br>
+                            Connected to Backend via Proxy.<br>
+                            Status: ${response.status}<br>
+                            Response: ${text}
+                        </div>
+                    `;
+
+                    // Test 2: POST Check
+                    resultsDiv.innerHTML += 'Testing POST...';
+                    try {
+                        const postResp = await fetch('/api/auth/login', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ email: 'test_connectivity@example.com', password: 'password123' })
+                        });
+                        const postText = await postResp.text();
+
+                        // 404 or 401 is GOOD (means we reached backend). Network Error is BAD.
+                        if (postResp.status === 404 || postResp.status === 401 || postResp.ok) {
+                            resultsDiv.innerHTML += `
+                                <div class="status success">
+                                    <strong>TEST 2 (POST) SUCCESS!</strong><br>
+                                    Reached Backend via POST.<br>
+                                    Status: ${postResp.status}<br>
+                                    Response: ${postText}
+                                </div>
+                            `;
+                        } else {
+                            resultsDiv.innerHTML += `
+                                <div class="status error">
+                                    <strong>TEST 2 (POST) FAILED</strong><br>
+                                    Status: ${postResp.status}<br>
+                                    Response: ${postText}
+                                </div>
+                            `;
+                        }
+                    } catch (e) {
+                        resultsDiv.innerHTML += `
+                            <div class="status error">
+                                <strong>TEST 2 (POST) NETWORK ERROR</strong><br>
+                                Error: ${e.message}
+                            </div>
+                        `;
+                    }
+
+                } else {
+                    resultsDiv.innerHTML = `
+                        <div class="status error">
+                            <strong>BACKEND ERROR</strong><br>
+                            Reached Backend but got error.<br>
+                            Status: ${response.status}<br>
+                            Response: ${text}
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                resultsDiv.innerHTML = `
+                    <div class="status error">
+                        <strong>NETWORK ERROR</strong><br>
+                        Failed to fetch /api/health.<br>
+                        Error: ${error.message}<br>
+                        <br>
+                        Possible causes:<br>
+                        1. Proxy not running<br>
+                        2. Backend not running<br>
+                        3. Network disconnected
+                    </div>
+                `;
+            }
+        }
+
+        runTests();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KnowNet — Login</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/kn_login.css" />
+  <meta name="color-scheme" content="light" />
+</head>
+
+<body>
+  <div class="floating-icons" aria-hidden="true">
+    <div class="floating-icon">🧵</div>
+    <div class="floating-icon">🎤</div>
+    <div class="floating-icon">🎨</div>
+    <div class="floating-icon">💻</div>
+    <div class="floating-icon">⚙️</div>
+    <div class="floating-icon">📚</div>
+    <div class="floating-icon">🎭</div>
+    <div class="floating-icon">🏃</div>
+    <div class="floating-icon">🎵</div>
+    <div class="floating-icon">🔧</div>
+  </div>
+  <main class="page">
+    <section class="auth-card" aria-labelledby="login-title">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">
+          <img src="/assets/images/logo.jpg" alt="KnowNet Logo" width="48" height="48" />
+        </div>
+        <h1 id="login-title" class="brand__title">KnowNet</h1>
+        <p class="brand__subtitle">
+          Sign in to continue learning and sharing knowledge.
+        </p>
+      </div>
+
+      <form class="form" action="#" method="post" novalidate>
+        <div class="form__group">
+          <label for="identifier">Email Address</label>
+          <input id="identifier" name="identifier" type="email" inputmode="email" autocomplete="email"
+            placeholder="you@example.com" required aria-required="true" />
+          <p class="form__hint" id="identifier-hint">
+            Use the same email address you registered with.
+          </p>
+        </div>
+
+        <div class="form__group">
+          <div class="label-row">
+            <label for="password">Password</label>
+            <a class="link link--subtle" href="/pages/kn_forgot_password.html"
+              aria-label="Forgot your password? Reset here">Forgot Password?</a>
+          </div>
+          <input id="password" name="password" type="password" autocomplete="current-password" placeholder="••••••••"
+            required aria-required="true" />
+        </div>
+
+        <button class="btn btn--primary" type="submit">Login</button>
+
+        <div class="divider" role="separator" aria-label="or continue with">
+          <span>or</span>
+        </div>
+
+        <div class="social">
+          <button type="button" class="btn btn--social btn--google" aria-label="Continue with Google">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path
+                d="M21.35 11.1h-9.4v2.98h5.44c-.24 1.48-1.67 4.34-5.44 4.34-3.28 0-5.96-2.71-5.96-6.06s2.68-6.06 5.96-6.06c1.87 0 3.12.8 3.84 1.49l2.61-2.52C17.49 3.3 15.09 2.2 12 2.2 6.92 2.2 2.8 6.32 2.8 11.4S6.92 20.6 12 20.6c6.91 0 8.2-4.83 8.2-7.36 0-.5-.06-1.11-.14-1.54z" />
+            </svg>
+            Continue with Google
+          </button>
+        </div>
+
+        <p class="signup">
+          New to KnowNet?
+          <a class="link" href="/pages/kn_signup.html">Create an account</a>
+        </p>
+        <p class="signup">
+          <a class="link link--subtle" href="/">← Back to Home</a>
+        </p>
+      </form>
+
+      <footer class="legal" aria-label="Legal">
+        <p>
+          By continuing, you agree to our
+          <a class="link link--subtle" href="#">Terms</a> and
+          <a class="link link--subtle" href="#">Privacy Policy</a>.
+        </p>
+      </footer>
+    </section>
+  </main>
+  <script src="/assets/js/kn_api.js"></script>
+  <script src="/assets/js/kn_login.js"></script>
+</body>
+
+</html>

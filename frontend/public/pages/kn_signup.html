@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KnowNet — Create Account</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/kn_signup.css">
+<meta name="color-scheme" content="light">
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<script src="/config/google-config.js"></script>
+</head>
+<body>
+  <div class="floating-icons">
+    <div class="floating-icon">🧵</div>
+    <div class="floating-icon">🎤</div>
+    <div class="floating-icon">🎨</div>
+    <div class="floating-icon">💻</div>
+    <div class="floating-icon">⚙️</div>
+    <div class="floating-icon">📚</div>
+    <div class="floating-icon">🎭</div>
+    <div class="floating-icon">🏃</div>
+    <div class="floating-icon">🎵</div>
+    <div class="floating-icon">🔧</div>
+  </div>
+  <main class="page">
+    <section class="signup-card" aria-labelledby="signup-title">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">
+          <img src="/assets/images/logo.jpg" alt="KnowNet Logo" width="48" height="48">
+        </div>
+        <h1 id="signup-title" class="brand__title">Create Your Account</h1>
+        <p class="brand__subtitle">Join the community of learners and skill-sharers.</p>
+      </div>
+
+      <form class="form" action="#" method="post" novalidate>
+        <div class="form__group">
+          <label for="fullname">Full Name</label>
+          <input id="fullname" name="fullname" type="text" autocomplete="name" placeholder="Enter your full name" required aria-required="true">
+        </div>
+
+        <div class="form__group">
+          <label for="email">Email Address</label>
+          <input id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@example.com" required aria-required="true">
+        </div>
+
+        <div class="form__group">
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" autocomplete="new-password" placeholder="••••••••" required aria-required="true">
+          <p class="form__hint">Must be at least 8 characters with letters and numbers.</p>
+        </div>
+
+        <div class="form__group">
+          <label for="confirm-password">Confirm Password</label>
+          <input id="confirm-password" name="confirm-password" type="password" autocomplete="new-password" placeholder="••••••••" required aria-required="true">
+        </div>
+
+        <div class="form__group">
+          <label for="location">Location</label>
+          <input id="location" name="location" type="text" autocomplete="address-level2" placeholder="City or Remote" required aria-required="true">
+          <p class="form__hint">Enter your city or "Remote" if you work remotely.</p>
+        </div>
+
+        <div class="form__group">
+          <label>Select Your Interests</label>
+          <div class="skills-grid">
+            <button type="button" class="skill-tag" data-skill="tailoring">
+              <span class="skill-icon">🧵</span>
+              <span class="skill-name">Tailoring</span>
+            </button>
+            <button type="button" class="skill-tag" data-skill="singing">
+              <span class="skill-icon">🎤</span>
+              <span class="skill-name">Singing</span>
+            </button>
+            <button type="button" class="skill-tag" data-skill="drawing">
+              <span class="skill-icon">🎨</span>
+              <span class="skill-name">Drawing</span>
+            </button>
+            <button type="button" class="skill-tag" data-skill="technical">
+              <span class="skill-icon">💻</span>
+              <span class="skill-name">Technical</span>
+            </button>
+            <button type="button" class="skill-tag" data-skill="cooking">
+              <span class="skill-icon">👨‍🍳</span>
+              <span class="skill-name">Cooking</span>
+            </button>
+            <button type="button" class="skill-tag" data-skill="fitness">
+              <span class="skill-icon">🏃</span>
+              <span class="skill-name">Fitness</span>
+            </button>
+            <button type="button" class="skill-tag" data-skill="music">
+              <span class="skill-icon">🎵</span>
+              <span class="skill-name">Music</span>
+            </button>
+            <button type="button" class="skill-tag" data-skill="photography">
+              <span class="skill-icon">📸</span>
+              <span class="skill-name">Photography</span>
+            </button>
+            <button type="button" class="skill-tag" data-skill="trading">
+              <span class="skill-icon">📈</span>
+              <span class="skill-name">Trading</span>
+            </button>
+            <button type="button" class="skill-tag" data-skill="yoga">
+              <span class="skill-icon">🧘</span>
+              <span class="skill-name">Yoga</span>
+            </button>
+            <button type="button" class="skill-tag" data-skill="business">
+              <span class="skill-icon">💼</span>
+              <span class="skill-name">Business</span>
+            </button>
+            <button type="button" class="skill-tag" data-skill="writing">
+              <span class="skill-icon">✍️</span>
+              <span class="skill-name">Writing</span>
+            </button>
+            <button type="button" class="skill-tag" data-skill="dancing">
+              <span class="skill-icon">💃</span>
+              <span class="skill-name">Dancing</span>
+            </button>
+            <button type="button" class="skill-tag" data-skill="gardening">
+              <span class="skill-icon">🌱</span>
+              <span class="skill-name">Gardening</span>
+            </button>
+            <button type="button" class="skill-tag" data-skill="painting">
+              <span class="skill-icon">🎨</span>
+              <span class="skill-name">Painting</span>
+            </button>
+            <button type="button" class="skill-tag" data-skill="languages">
+              <span class="skill-icon">🗣️</span>
+              <span class="skill-name">Languages</span>
+            </button>
+            <button type="button" class="skill-tag" data-skill="meditation">
+              <span class="skill-icon">🧘‍♀️</span>
+              <span class="skill-name">Meditation</span>
+            </button>
+            <button type="button" class="skill-tag" data-skill="marketing">
+              <span class="skill-icon">📢</span>
+              <span class="skill-name">Marketing</span>
+            </button>
+            <button type="button" class="skill-tag" data-skill="design">
+              <span class="skill-icon">🎨</span>
+              <span class="skill-name">Design</span>
+            </button>
+            <button type="button" class="skill-tag" data-skill="baking">
+              <span class="skill-icon">🍰</span>
+              <span class="skill-name">Baking</span>
+            </button>
+            <button type="button" class="skill-tag" data-skill="knitting">
+              <span class="skill-icon">🧶</span>
+              <span class="skill-name">Knitting</span>
+            </button>
+            <button type="button" class="skill-tag" data-skill="woodworking">
+              <span class="skill-icon">🔨</span>
+              <span class="skill-name">Woodworking</span>
+            </button>
+            <button type="button" class="skill-tag" data-skill="investing">
+              <span class="skill-icon">💰</span>
+              <span class="skill-name">Investing</span>
+            </button>
+            <button type="button" class="skill-tag" data-skill="public-speaking">
+              <span class="skill-icon">🎭</span>
+              <span class="skill-name">Public Speaking</span>
+            </button>
+          </div>
+          <p class="form__hint">Choose up to 5 skills that interest you most.</p>
+        </div>
+
+        <button class="btn btn--primary" type="submit">Create Account</button>
+
+        <div class="divider" role="separator" aria-label="or continue with">
+          <span>or</span>
+        </div>
+
+        <div class="social">
+          <div id="g_id_onload"
+               data-client_id="YOUR_GOOGLE_CLIENT_ID"
+               data-context="signup"
+               data-ux_mode="popup"
+               data-callback="handleGoogleSignup"
+               data-auto_prompt="false">
+          </div>
+          <button type="button" class="btn btn--social btn--google" id="google-signup-btn" aria-label="Continue with Google">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21.35 11.1h-9.4v2.98h5.44c-.24 1.48-1.67 4.34-5.44 4.34-3.28 0-5.96-2.71-5.96-6.06s2.68-6.06 5.96-6.06c1.87 0 3.12.8 3.84 1.49l2.61-2.52C17.49 3.3 15.09 2.2 12 2.2 6.92 2.2 2.8 6.32 2.8 11.4S6.92 20.6 12 20.6c6.91 0 8.2-4.83 8.2-7.36 0-.5-.06-1.11-.14-1.54z"/></svg>
+            Continue with Google
+          </button>
+
+        </div>
+
+        <p class="signin">Already have an account? <a class="link" href="/pages/kn_login.html">Sign in</a></p>
+        <p class="signin"><a class="link link--subtle" href="/">← Back to Home</a></p>
+      </form>
+
+      <footer class="legal" aria-label="Legal">
+        <p>By creating an account, you agree to our <a class="link link--subtle" href="#">Terms</a> and <a class="link link--subtle" href="#">Privacy Policy</a>.</p>
+      </footer>
+    </section>
+  </main>
+
+    <script src="/assets/js/kn_api.js"></script>
+    <script src="/assets/js/kn_signup.js"></script>
+</body>
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KnowNet — Notifications</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/kn_notifications.css">
+    <meta name="color-scheme" content="light">
+</head>
+
+<body>
+    <div class="floating-icons">
+        <div class="floating-icon">🧵</div>
+        <div class="floating-icon">🎤</div>
+        <div class="floating-icon">🎨</div>
+        <div class="floating-icon">💻</div>
+        <div class="floating-icon">⚙️</div>
+        <div class="floating-icon">📚</div>
+        <div class="floating-icon">🎭</div>
+        <div class="floating-icon">🏃</div>
+        <div class="floating-icon">🎵</div>
+        <div class="floating-icon">🔧</div>
+    </div>
+
+    <header class="header">
+        <div class="brand">
+            <div class="logo" aria-hidden="true">
+                <img src="/assets/images/logo.jpg" alt="KnowNet Logo" width="48" height="48">
+            </div>
+            <h1>KnowNet</h1>
+        </div>
+        <nav class="nav">
+            <a href="/" class="nav-link">Home</a>
+            <a href="/pages/kn_dashboard.html" class="nav-link">Dashboard</a>
+            <a href="/pages/kn_skills.html" class="nav-link">Skills</a>
+            <a href="/pages/kn_meeting.html" class="nav-link">Meetings</a>
+            <a href="/pages/kn_chat.html" class="nav-link">Chat</a>
+            <a href="/pages/kn_profile.html" class="nav-link">Profile</a>
+        </nav>
+        <div class="header-actions">
+            <button class="icon-btn active" aria-label="Notifications">
+                <i class="fas fa-bell"></i>
+                <span class="notification-badge">3</span>
+            </button>
+            <button class="icon-btn" aria-label="User menu">
+                <i class="fas fa-user"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <div class="page-header">
+            <h1>Notifications</h1>
+            <p>Stay updated with your latest alerts and invites</p>
+        </div>
+
+        <div class="notifications-container">
+            <div class="notifications-header">
+                <div class="filter-tabs">
+                    <button class="filter-tab active" data-filter="all">All</button>
+                    <button class="filter-tab" data-filter="invites">Session Invites</button>
+                    <button class="filter-tab" data-filter="community">Community</button>
+                    <button class="filter-tab" data-filter="system">System</button>
+                </div>
+                <div class="actions">
+                    <button class="btn btn--secondary" id="markAllRead">
+                        <i class="fas fa-check-double"></i>
+                        Mark All Read
+                    </button>
+                    <button class="btn btn--secondary" id="clearAll">
+                        <i class="fas fa-trash"></i>
+                        Clear All
+                    </button>
+                </div>
+            </div>
+
+            <div class="notifications-list">
+                <div class="notification-item unread" data-type="invites">
+                    <div class="notification-icon">
+                        <i class="fas fa-calendar-plus"></i>
+                    </div>
+                    <div class="notification-content">
+                        <div class="notification-header">
+                            <h4>New Session Invite</h4>
+                            <span class="notification-time">2 minutes ago</span>
+                        </div>
+                        <p>Dr. Johnson invited you to join "Advanced Calculus II" session tomorrow at 2:00 PM.</p>
+                        <div class="notification-actions">
+                            <button class="btn btn--primary btn--small accept-btn">Accept</button>
+                            <button class="btn btn--secondary btn--small decline-btn">Decline</button>
+                        </div>
+                    </div>
+                    <button class="notification-close" aria-label="Dismiss notification">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+
+                <div class="notification-item unread" data-type="community">
+                    <div class="notification-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="notification-content">
+                        <div class="notification-header">
+                            <h4>Community Update</h4>
+                            <span class="notification-time">15 minutes ago</span>
+                        </div>
+                        <p>New discussion started in Web Development community: "Best practices for React hooks"</p>
+                        <div class="notification-actions">
+                            <button class="btn btn--secondary btn--small">View Discussion</button>
+                        </div>
+                    </div>
+                    <button class="notification-close" aria-label="Dismiss notification">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+
+                <div class="notification-item unread" data-type="system">
+                    <div class="notification-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="notification-content">
+                        <div class="notification-header">
+                            <h4>Achievement Unlocked!</h4>
+                            <span class="notification-time">1 hour ago</span>
+                        </div>
+                        <p>Congratulations! You've earned the "Active Learner" badge for participating in 10 sessions
+                            this month.</p>
+                        <div class="notification-actions">
+                            <button class="btn btn--secondary btn--small">View Badge</button>
+                        </div>
+                    </div>
+                    <button class="notification-close" aria-label="Dismiss notification">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+
+                <div class="notification-item" data-type="invites">
+                    <div class="notification-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <div class="notification-content">
+                        <div class="notification-header">
+                            <h4>Session Reminder</h4>
+                            <span class="notification-time">2 hours ago</span>
+                        </div>
+                        <p>Reminder: "UI/UX Design Workshop" starts in 30 minutes. Don't forget to join!</p>
+                        <div class="notification-actions">
+                            <button class="btn btn--primary btn--small">Join Now</button>
+                        </div>
+                    </div>
+                    <button class="notification-close" aria-label="Dismiss notification">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+
+                <div class="notification-item" data-type="community">
+                    <div class="notification-icon">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                    <div class="notification-content">
+                        <div class="notification-header">
+                            <h4>New Community Member</h4>
+                            <span class="notification-time">3 hours ago</span>
+                        </div>
+                        <p>Sarah Miller joined the Data Analysis community. Welcome her!</p>
+                        <div class="notification-actions">
+                            <button class="btn btn--secondary btn--small">Send Welcome</button>
+                        </div>
+                    </div>
+                    <button class="notification-close" aria-label="Dismiss notification">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+
+                <div class="notification-item" data-type="system">
+                    <div class="notification-icon">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                    <div class="notification-content">
+                        <div class="notification-header">
+                            <h4>System Maintenance</h4>
+                            <span class="notification-time">1 day ago</span>
+                        </div>
+                        <p>Scheduled maintenance completed. All features are now fully operational.</p>
+                        <div class="notification-actions">
+                            <button class="btn btn--secondary btn--small">Learn More</button>
+                        </div>
+                    </div>
+                    <button class="notification-close" aria-label="Dismiss notification">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+
+                <div class="notification-item" data-type="invites">
+                    <div class="notification-icon">
+                        <i class="fas fa-calendar-times"></i>
+                    </div>
+                    <div class="notification-content">
+                        <div class="notification-header">
+                            <h4>Session Cancelled</h4>
+                            <span class="notification-time">2 days ago</span>
+                        </div>
+                        <p>The "Mobile Development Basics" session scheduled for tomorrow has been cancelled.</p>
+                        <div class="notification-actions">
+                            <button class="btn btn--secondary btn--small">View Alternatives</button>
+                        </div>
+                    </div>
+                    <button class="notification-close" aria-label="Dismiss notification">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="notifications-footer">
+                <p>Showing 7 of 7 notifications</p>
+                <button class="btn btn--secondary" id="loadMore">Load More</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"
+        integrity="sha512-uMtXmF28A2Ab/JJO2t/vYhlaa/3ahUOgj1Zf27M5rOo8/+fcTUVH0/E0ll68njmjrLqOBjXM3V9NiPFL5ywWPQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="/assets/js/kn_api.js"></script>
+    <script src="/assets/js/kn_notifications.js"></script>
+    <script src="/assets/js/kn_notifications.js"></script>
+</body>
+
+</html>
