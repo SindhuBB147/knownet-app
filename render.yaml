@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: knownet-backend
+    runtime: python
+    repo: https://github.com/render-examples/fastapi # Placeholder, Render will use linked repo
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0 # Explicitly set a stable version if needed, or rely on runtime.txt
