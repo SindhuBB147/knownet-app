@@ -19,7 +19,7 @@ app = FastAPI(title=settings.app_name)
 # CORS middleware - must be added before exception handlers
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=settings.allowed_origins,
+    allow_origins=[origin.strip() for origin in settings.allowed_origins.split(",")],
     allow_credentials=True,
     allow_headers=["*"],
 )
@@ -51,7 +51,8 @@ async def global_exception_handler(request: Request, exc: Exception):
     logger.error(f"Unhandled exception: {str(exc)}", exc_info=True)
     origin = request.headers.get("origin")
     cors_headers = {}
-    if origin and origin in settings.allowed_origins:
+    allowed_list = [origin.strip() for origin in settings.allowed_origins.split(",")]
+    if origin and (origin in allowed_list or "*" in allowed_list):
         cors_headers["Access-Control-Allow-Origin"] = origin
         cors_headers["Access-Control-Allow-Credentials"] = "true"
     return JSONResponse(

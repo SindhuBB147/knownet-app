@@ -18,19 +18,8 @@ class Settings(BaseSettings):
     # Allow overriding via env var. Parsing logic handled by validator if needed, 
     # but BaseSettings handles JSON lists automatically.
     # To support simple comma-separated strings, we can add a validator:
-    allowed_origins: List[str] = [
-        "http://localhost:3000",
-        "http://localhost:5173",
-        "http://localhost:5174",
-        "http://127.0.0.1:5173",
-        "http://127.0.0.1:8000",
-    ]
-
-    @validator("allowed_origins", pre=True)
-    def parse_allowed_origins(cls, v):
-        if isinstance(v, str):
-            return [origin.strip() for origin in v.split(",")]
-        return v
+    # Allowed origins as a comma-separated string
+    allowed_origins: str = "http://localhost:3000,http://localhost:5173,http://localhost:5174,http://127.0.0.1:5173,http://127.0.0.1:8000"
 
     recordings_dir: str = str(BASE_DIR / "recordings")
     resources_dir: str = str(BASE_DIR / "resources")
