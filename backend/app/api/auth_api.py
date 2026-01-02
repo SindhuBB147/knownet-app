@@ -34,9 +34,9 @@ class RegisterRequest(BaseModel):
     email: EmailStr
     password: constr(min_length=6)
     role: UserRole
-    location: constr(min_length=2)
-    city: Optional[constr(min_length=2)] = None
-    state: Optional[constr(min_length=2)] = None
+    location: str # Removed min_length to avoid validation errors on short location names or empty strings if passed incorrectly
+    city: Optional[str] = None
+    state: Optional[str] = None
     latitude: Optional[float] = None
     longitude: Optional[float] = None
 
