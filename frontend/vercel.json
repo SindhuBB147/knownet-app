@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/:path*",
-      "destination": "https://knownet-backend.onrender.com/api/:path*"
+      "destination": "https://knownet-backend.onrender.com/:path*"
     },
     {
       "source": "/(.*)",
