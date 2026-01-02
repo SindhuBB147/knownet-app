@@ -27,7 +27,7 @@ class ProfileInfo(BaseModel):
     theme_preference: str
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 class NotificationSettings(BaseModel):
@@ -49,7 +49,7 @@ class ProfileDetailsResponse(BaseModel):
     notifications: NotificationSettings
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 class ProfileUpdateRequest(BaseModel):
@@ -91,7 +91,7 @@ class SkillOut(BaseModel):
     level: Optional[str]
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 def _serialize_details(user: User, db: Session) -> ProfileDetailsResponse:

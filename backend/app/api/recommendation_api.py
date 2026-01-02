@@ -25,7 +25,7 @@ class RecommendedUser(BaseModel):
     distance_km: Optional[float]
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 class LocationRecommendationResponse(BaseModel):

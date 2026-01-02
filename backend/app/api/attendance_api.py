@@ -19,7 +19,7 @@ class AttendeeUser(BaseModel):
     location: str
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 class AttendanceResponse(BaseModel):
@@ -27,7 +27,7 @@ class AttendanceResponse(BaseModel):
     joined_at: datetime
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 @router.get("/{session_id}", response_model=List[AttendanceResponse])

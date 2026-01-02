@@ -20,7 +20,7 @@ class UserPreview(BaseModel):
     avatar_url: Optional[str]
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 class ConnectionOut(BaseModel):
@@ -34,7 +34,7 @@ class ConnectionOut(BaseModel):
     receiver: UserPreview
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 class ConnectionAcceptedResponse(BaseModel):

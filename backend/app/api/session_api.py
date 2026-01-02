@@ -33,6 +33,7 @@ class SessionOut(BaseModel):
 
     class Config:
         orm_mode = True
+        from_attributes = True
 
 
 class AttendanceOut(BaseModel):
@@ -42,6 +43,7 @@ class AttendanceOut(BaseModel):
 
     class Config:
         orm_mode = True
+        from_attributes = True
 
 
 class UserSessionOut(SessionOut):

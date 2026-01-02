@@ -19,7 +19,7 @@ class MeetingRecordingOut(BaseModel):
     created_at: datetime
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 class MeetingDocumentOut(BaseModel):
@@ -32,7 +32,7 @@ class MeetingDocumentOut(BaseModel):
     created_at: datetime
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 class MeetingRecordingCreated(BaseModel):

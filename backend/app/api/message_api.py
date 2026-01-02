@@ -25,7 +25,7 @@ class MessageOut(BaseModel):
     timestamp: datetime
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 @router.get("/{session_id}/messages", response_model=List[MessageOut])

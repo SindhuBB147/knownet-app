@@ -23,7 +23,7 @@ class NotificationOut(BaseModel):
     read: bool
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 @router.get("/", response_model=List[NotificationOut])
