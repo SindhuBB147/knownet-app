@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+frontend/node_modules/
+venv/
+vir/
+__pycache__/
+*.pyc
+
+# Environment variables
+.env
+
+# IDEs
+.vscode/
+.idea/
+.DS_Store
+
+# Logs
+logs/
+*.log
