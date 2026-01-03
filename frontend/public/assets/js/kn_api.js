@@ -3,9 +3,12 @@
     const protocol = window.location.protocol;
     const hostname = window.location.hostname;
     // Always use the proxy '/api' when running via Vite (localhost:5173)
-    // If you are using XAMPP directly, you might need to change this, but for now 
-    // we assume the user is following instructions to use port 5173.
-    const DEFAULT_BASE_URL = "/api";
+    // For production (Vercel), we point directly to Render to avoid rewrite 404s
+    let DEFAULT_BASE_URL = "https://knownet-backend.onrender.com";
+
+    if (hostname === "localhost" || hostname === "127.0.0.1") {
+        DEFAULT_BASE_URL = "/api";
+    }
 
     const STORAGE_KEYS = {
         TOKEN: "knownet_token",
