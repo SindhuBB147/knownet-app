@@ -56,7 +56,12 @@ document.addEventListener('DOMContentLoaded', function () {
                     // Actually, previously assumed /uploads/, let's see what backend returned
                     // Backend returns "/uploads/avatars/..."
                     // Since it's in public folder, we can access it directly relative to root
-                    userAvatar.src = result.avatar_url + '?t=' + new Date().getTime();
+                    const baseURL = window.KN.api.defaults.baseURL.endsWith('/api')
+                        ? window.KN.api.defaults.baseURL.replace('/api', '')
+                        : window.KN.api.defaults.baseURL;
+
+                    const avatarPath = result.avatar_url.startsWith('/') ? result.avatar_url : '/' + result.avatar_url;
+                    userAvatar.src = `${baseURL}${avatarPath}?t=${new Date().getTime()}`;
 
                     // Update auth cache
                     const currentUser = window.KN.auth.getUser();
@@ -132,7 +137,16 @@ document.addEventListener('DOMContentLoaded', function () {
             if (profileInfo.avatar_url) {
                 const userAvatar = document.getElementById('userAvatar');
                 if (userAvatar) {
-                    userAvatar.src = profileInfo.avatar_url;
+                    if (profileInfo.avatar_url.startsWith('http')) {
+                        userAvatar.src = profileInfo.avatar_url;
+                    } else {
+                        // Prepend backend URL for relative paths
+                        const baseURL = window.KN.api.defaults.baseURL.endsWith('/api')
+                            ? window.KN.api.defaults.baseURL.replace('/api', '')
+                            : window.KN.api.defaults.baseURL;
+                        const avatarPath = profileInfo.avatar_url.startsWith('/') ? profileInfo.avatar_url : '/' + profileInfo.avatar_url;
+                        userAvatar.src = `${baseURL}${avatarPath}`;
+                    }
                 }
             }
 

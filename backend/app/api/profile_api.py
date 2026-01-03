@@ -13,6 +13,7 @@ from app.models.user import User, UserRole
 from app.models.user_profile import ProfileVisibility
 from app.models.user_skill import UserSkill
 from app.services import auth_service, profile_service, skill_service
+from config.config import settings
 
 router = APIRouter(prefix="/profile", tags=["Profile"])
 
@@ -229,12 +230,8 @@ async def upload_avatar(
     # Validate file size (optional, can be done via middleware or here if reading chunks)
     # For simplicity, we trust standard upload limits for now
 
-    # Create storage directory if not exists (although we did via CLI, good safety)
-    # Path relative to backend/run.py -> ../frontend/public/uploads/avatars
-    base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-    # Navigate up to 'Mini Project' root
-    project_root = os.path.dirname(base_dir)
-    upload_dir = os.path.join(project_root, "frontend", "public", "uploads", "avatars")
+    # Create storage directory if not exists
+    upload_dir = os.path.join(settings.uploads_dir, "avatars")
     os.makedirs(upload_dir, exist_ok=True)
 
     # Generate unique filename

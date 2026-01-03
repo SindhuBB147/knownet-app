@@ -24,6 +24,7 @@ class Settings(BaseSettings):
     recordings_dir: str = str(BASE_DIR / "recordings")
     resources_dir: str = str(BASE_DIR / "resources")
     videos_dir: str = str(BASE_DIR / "videos")
+    uploads_dir: str = str(BASE_DIR / "uploads")
 
     class Config:
         env_file = ".env"

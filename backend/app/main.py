@@ -53,6 +53,7 @@ async def log_requests(request: Request, call_next):
 app.mount("/recordings", StaticFiles(directory=settings.recordings_dir), name="recordings")
 app.mount("/resources", StaticFiles(directory=settings.resources_dir), name="resources")
 app.mount("/videos", StaticFiles(directory=settings.videos_dir), name="videos")
+app.mount("/uploads", StaticFiles(directory=settings.uploads_dir), name="uploads")
 
 # Global exception handler to ensure CORS headers are always sent
 # This catches unhandled exceptions (not HTTPExceptions which are handled by FastAPI)
