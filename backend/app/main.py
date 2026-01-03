@@ -49,6 +49,12 @@ async def log_requests(request: Request, call_next):
         logger.error(f"REQUEST FAILED: {str(e)}")
         raise
 
+import os
+
+# Ensure storage directories exist
+for dir_path in [settings.recordings_dir, settings.resources_dir, settings.videos_dir, settings.uploads_dir]:
+    os.makedirs(dir_path, exist_ok=True)
+
 # Static file mounts for shared media
 app.mount("/recordings", StaticFiles(directory=settings.recordings_dir), name="recordings")
 app.mount("/resources", StaticFiles(directory=settings.resources_dir), name="resources")
