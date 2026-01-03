@@ -12,17 +12,9 @@
         USER: "knownet_user"
     };
 
-    // Priority: 1. Environment Variable (Vite) 2. Window Config (Legacy/Manual) 3. Default Proxy
-    let envBaseUrl = null;
-    try {
-        if (typeof import.meta !== 'undefined' && import.meta.env) {
-            envBaseUrl = import.meta.env.VITE_API_BASE_URL;
-        }
-    } catch (e) {
-        // Ignore errors if import.meta is not available
-    }
-
-    const API_BASE_URL = envBaseUrl || window.KN_API_BASE_URL || DEFAULT_BASE_URL;
+    // Priority: 1. Window Config (Legacy/Manual) 2. Default Proxy
+    // Note: Removed import.meta check to prevent "Cannot use import.meta outside a module" errors
+    const API_BASE_URL = window.KN_API_BASE_URL || DEFAULT_BASE_URL;
 
     const isJSONLike = (value) =>
         value &&
