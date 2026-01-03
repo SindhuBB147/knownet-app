@@ -17,12 +17,26 @@ logger = logging.getLogger(__name__)
 app = FastAPI(title=settings.app_name)
 
 # CORS middleware - must be added before exception handlers
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=[origin.strip() for origin in settings.allowed_origins.split(",")],
-    allow_credentials=True,
-    allow_headers=["*"],
-)
+allowed_origins_list = [origin.strip() for origin in settings.allowed_origins.split(",")]
+
+# If '*' is in the list and credentials are allowed, we must use regex to reflect origin
+# because browsers reject 'Access-Control-Allow-Origin: *' with credentials.
+if "*" in allowed_origins_list:
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origin_regex=".*",  # Allows any origin and reflects it in the header
+        allow_credentials=True,
+        allow_headers=["*"],
+        allow_methods=["*"],
+    )
+else:
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=allowed_origins_list,
+        allow_credentials=True,
+        allow_headers=["*"],
+        allow_methods=["*"],
+    )
 
 @app.middleware("http")
 async def log_requests(request: Request, call_next):
