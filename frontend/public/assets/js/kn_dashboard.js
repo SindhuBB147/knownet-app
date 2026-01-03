@@ -224,7 +224,14 @@ document.addEventListener('DOMContentLoaded', function () {
             // Avatar Handling
             let avatarHtml = `<div style="width:48px;height:48px;border-radius:50%;background:#f1f5f9;display:flex;align-items:center;justify-content:center;font-weight:700;color:#64748b;font-size:1.2rem;">${user.name ? user.name[0].toUpperCase() : '?'}</div>`;
             if (user.avatar_url) {
-                avatarHtml = `<img src="${user.avatar_url}" alt="${escapeHtml(user.name)}" style="width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid white;box-shadow:0 2px 4px rgba(0,0,0,0.1);">`;
+                let avatarUrl = user.avatar_url;
+                if (!avatarUrl.startsWith('http')) {
+                    const apiBase = window.KN.API_BASE_URL;
+                    const baseURL = apiBase.endsWith('/api') ? apiBase.replace('/api', '') : apiBase;
+                    const avatarPath = avatarUrl.startsWith('/') ? avatarUrl : '/' + avatarUrl;
+                    avatarUrl = `${baseURL}${avatarPath}`;
+                }
+                avatarHtml = `<img src="${avatarUrl}" alt="${escapeHtml(user.name)}" style="width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid white;box-shadow:0 2px 4px rgba(0,0,0,0.1);">`;
             }
 
             // Skill matches
@@ -319,9 +326,10 @@ document.addEventListener('DOMContentLoaded', function () {
         if (userMenuBtn && avatarUrl) {
             // Apply same fix as profile page: prepend backend URL if relative
             if (!avatarUrl.startsWith('http')) {
-                const baseURL = window.KN.api.defaults.baseURL.endsWith('/api')
-                    ? window.KN.api.defaults.baseURL.replace('/api', '')
-                    : window.KN.api.defaults.baseURL;
+                const apiBase = window.KN.API_BASE_URL;
+                const baseURL = apiBase.endsWith('/api')
+                    ? apiBase.replace('/api', '')
+                    : apiBase;
                 const avatarPath = avatarUrl.startsWith('/') ? avatarUrl : '/' + avatarUrl;
                 avatarUrl = `${baseURL}${avatarPath}`;
             }
@@ -500,7 +508,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <span class="notif__icon" aria-hidden="true">${getNotificationIcon(notification.type)}</span>
                 <div class="notif__body">
                     <p><strong>${escapeHtml(notification.title)}</strong> ${escapeHtml(notification.body)}</p>
-<span class="time" data-live-time="${notification.created_at}">${formatRelativeTime(notification.created_at)}</span>
+<span class="time" data-live-time="${notification.created_at}">${window.KN.util.formatRelativeTime(notification.created_at)}</span>
                     ${renderNotificationActions(notification)}
                 </div>
             `;
@@ -600,11 +608,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (data.users.length > 0) {
             appendSearchGroup(resultsContainer, 'People', data.users, (user) => {
+                let avatarUrl = user.avatar_url;
+                if (avatarUrl && !avatarUrl.startsWith('http')) {
+                    const apiBase = window.KN.API_BASE_URL;
+                    const baseURL = apiBase.endsWith('/api') ? apiBase.replace('/api', '') : apiBase;
+                    const avatarPath = avatarUrl.startsWith('/') ? avatarUrl : '/' + avatarUrl;
+                    avatarUrl = `${baseURL}${avatarPath}`;
+                }
+
                 const div = document.createElement('div');
                 div.className = 'search-result-item';
                 div.innerHTML = `
-                    ${user.avatar_url ?
-                        `<img src="${user.avatar_url}" class="search-avatar">` :
+                    ${avatarUrl ?
+                        `<img src="${avatarUrl}" class="search-avatar">` :
                         `<div class="search-avatar">${user.name.charAt(0)}</div>`
                     }
                     <div>
@@ -702,18 +718,9 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // Use centralized util function instead of local re-implementation
     function formatRelativeTime(dateString) {
-        const date = new Date(dateString);
-        const now = new Date();
-        const diffMs = now - date;
-        const diffMinutes = Math.floor(diffMs / 60000);
-        if (diffMinutes < 1) return 'Just now';
-        if (diffMinutes < 60) return `${diffMinutes}m ago`;
-        const diffHours = Math.floor(diffMinutes / 60);
-        if (diffHours < 24) return `${diffHours}h ago`;
-        const diffDays = Math.floor(diffHours / 24);
-        if (diffDays === 1) return 'Yesterday';
-        return date.toLocaleDateString();
+        return window.KN.util.formatRelativeTime(dateString);
     }
 
     function getNotificationIcon(type) {

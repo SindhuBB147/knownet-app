@@ -56,12 +56,15 @@ document.addEventListener('DOMContentLoaded', function () {
                     // Actually, previously assumed /uploads/, let's see what backend returned
                     // Backend returns "/uploads/avatars/..."
                     // Since it's in public folder, we can access it directly relative to root
-                    const baseURL = window.KN.api.defaults.baseURL.endsWith('/api')
-                        ? window.KN.api.defaults.baseURL.replace('/api', '')
-                        : window.KN.api.defaults.baseURL;
+                    const apiBase = window.KN.API_BASE_URL;
+                    const baseURL = apiBase.endsWith('/api')
+                        ? apiBase.replace('/api', '')
+                        : apiBase;
 
                     const avatarPath = result.avatar_url.startsWith('/') ? result.avatar_url : '/' + result.avatar_url;
-                    userAvatar.src = `${baseURL}${avatarPath}?t=${new Date().getTime()}`;
+                    const fullUrl = `${baseURL}${avatarPath}?t=${new Date().getTime()}`;
+                    console.log('[Profile] Upload success. New URL:', fullUrl);
+                    userAvatar.src = fullUrl;
 
                     // Update auth cache
                     const currentUser = window.KN.auth.getUser();
@@ -141,11 +144,19 @@ document.addEventListener('DOMContentLoaded', function () {
                         userAvatar.src = profileInfo.avatar_url;
                     } else {
                         // Prepend backend URL for relative paths
-                        const baseURL = window.KN.api.defaults.baseURL.endsWith('/api')
-                            ? window.KN.api.defaults.baseURL.replace('/api', '')
-                            : window.KN.api.defaults.baseURL;
+                        const apiBase = window.KN.API_BASE_URL;
+                        const baseURL = apiBase.endsWith('/api')
+                            ? apiBase.replace('/api', '')
+                            : apiBase;
                         const avatarPath = profileInfo.avatar_url.startsWith('/') ? profileInfo.avatar_url : '/' + profileInfo.avatar_url;
-                        userAvatar.src = `${baseURL}${avatarPath}`;
+                        const fullAvatarUrl = `${baseURL}${avatarPath}`;
+                        console.log('[Profile] Loading avatar from:', fullAvatarUrl);
+                        userAvatar.src = fullAvatarUrl;
+
+                        userAvatar.onerror = function () {
+                            console.error('[Profile] Failed to load avatar:', fullAvatarUrl);
+                            userAvatar.style.border = '2px solid red';
+                        };
                     }
                 }
             }
