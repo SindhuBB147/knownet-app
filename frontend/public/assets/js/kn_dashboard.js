@@ -317,6 +317,14 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         if (userMenuBtn && avatarUrl) {
+            // Apply same fix as profile page: prepend backend URL if relative
+            if (!avatarUrl.startsWith('http')) {
+                const baseURL = window.KN.api.defaults.baseURL.endsWith('/api')
+                    ? window.KN.api.defaults.baseURL.replace('/api', '')
+                    : window.KN.api.defaults.baseURL;
+                const avatarPath = avatarUrl.startsWith('/') ? avatarUrl : '/' + avatarUrl;
+                avatarUrl = `${baseURL}${avatarPath}`;
+            }
             userMenuBtn.innerHTML = `<img src="${avatarUrl}" alt="Profile" style="width:100%;height:100%;border-radius:50%;object-fit:cover;">`;
             userMenuBtn.style.padding = '0'; // Remove padding for image
             userMenuBtn.style.overflow = 'hidden';

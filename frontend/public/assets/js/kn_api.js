@@ -163,6 +163,7 @@
     }
 
     const api = {
+        defaults: { baseURL: API_BASE_URL },
         request,
         get: (path, options = {}) =>
             request(path, { ...options, method: "GET" }),
