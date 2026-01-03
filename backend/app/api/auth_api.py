@@ -39,6 +39,7 @@ class RegisterRequest(BaseModel):
     state: Optional[str] = None
     latitude: Optional[float] = None
     longitude: Optional[float] = None
+    skills: Optional[list[str]] = None
 
 
 class LoginRequest(BaseModel):
@@ -69,6 +70,7 @@ def register_user(payload: RegisterRequest, db: Session = Depends(get_db)):
             state=payload.state,
             latitude=payload.latitude,
             longitude=payload.longitude,
+            skills=payload.skills,
         )
         logger.info(f"User created successfully with ID: {user.id}")
         token = auth_service.create_access_token({"sub": str(user.id)})

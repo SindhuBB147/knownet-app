@@ -361,7 +361,10 @@ document.addEventListener('DOMContentLoaded', function () {
                         email: document.getElementById('email').value.trim(),
                         password: document.getElementById('password').value,
                         role: 'student', // Default role, can be changed if you add role selection
-                        location: document.getElementById('location').value.trim() || 'Remote'
+                        location: document.getElementById('location').value.trim() || 'Remote',
+                        skills: Array.from(document.querySelectorAll('.skill-tag.selected')).map(skill =>
+                            skill.getAttribute('data-skill') || skill.querySelector('.skill-name').textContent.trim()
+                        )
                     };
 
                     console.log('[Signup] Sending registration request:', formData);

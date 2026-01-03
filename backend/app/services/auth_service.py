@@ -84,6 +84,7 @@ def create_user(
     state: Optional[str] = None,
     latitude: Optional[float] = None,
     longitude: Optional[float] = None,
+    skills: Optional[list[str]] = None,
 ) -> User:
     _validate_registration_data(
         name,
@@ -116,6 +117,17 @@ def create_user(
         logger.info(f"Commit successful, refreshing user...")
         db.refresh(user)
         logger.info(f"User created with ID: {user.id}")
+
+        if skills:
+            from app.services import skill_service
+            logger.info(f"Adding initial skills: {skills}")
+            for skill_name in skills:
+                try:
+                    skill_service.add_skill(db, user=user, name=skill_name)
+                except HTTPException:
+                     # Ignore duplicates or errors for initial seeding to ensure user creation succeeds
+                    pass
+
         return user
     except IntegrityError as e:
         logger.error(f"Integrity error: {str(e)}")
